@@ -1,0 +1,20 @@
+ <div class="container my-4">
+ <h1><%= @list.name %></h1>
+  <% @list.movies.each do |movie| %>
+    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+    <p><strong>Title:</strong> <%= movie.title %></p>
+    <p><strong>Overview: </strong> <%= movie.overview %></p>
+    <p><strong>Rating:</strong> <%= movie.rating %></p>
+    <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+    <% end %>
+</div>
+
+<div class="container">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment, placeholder:'Add a comment' %>
+    <%= f.association :movie %>
+    <%= f.submit class: 'btn-submit mt-3' %>
+  <% end %>
+<%= link_to "Return", lists_path, class: "btn btn-outline-success mt-3" %>
+</div>
+

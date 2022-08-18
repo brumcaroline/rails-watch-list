@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Create your list:</h1>
+</div>
+
+<div class="container mt-3">
+      <%= simple_form_for(@lists) do |f| %>
+        <%= f.input :name, placeholder: 'Add a list name' %>
+        <%= f.submit "Save", class: "btn btn-outline-success" %>
+      <% end %>
+ <%= link_to "Return", lists_path, class: "btn btn-outline-success mt-3" %>
+</div>
+

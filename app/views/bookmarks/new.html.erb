@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>New Bookmark:</h1>
+</div>
+
+<div class="container">
+  <%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment, placeholder:'Add a comment' %>
+    <%= f.association :movie %>
+    <%= f.submit class: 'btn-submit mt-3' %>
+  <% end %>
+<%= link_to "Return", lists_path, class: "btn btn-outline-success mt-3" %>
+</div>
