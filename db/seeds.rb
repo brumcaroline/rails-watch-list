@@ -45,9 +45,9 @@ Movie.create!(
   rating: 7.0
   )
 
-List.create!(
-  name: 'Drama'
-)
-List.create!(
-  name: 'Superhero'
-)
+# List.create!(
+#   name: 'Drama'
+# )
+# List.create!(
+#   name: 'Superhero'
+# )
