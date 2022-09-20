@@ -8,7 +8,7 @@
 
 <div class="container mt-4">
   <div class="row">
-    <% @lis.each do |list| %>
+    <% @lists.each do |list| %>
     <div class="col-4 mt-5">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path("default.jpg") %>)">
         <h3><%= link_to list.name, list_path(list), class: "card-category-link" %></h3>
