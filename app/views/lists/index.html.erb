@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
   <div class="container">
-    <h1>My <strong>fav </strong><strong> movies</strong>!</h1>
+    <h1>My <strong>fav</strong><strong> movies</strong>!</h1>
     <p>Here you can discover which movies earned my heart. 🤍</p>
     <%= link_to 'Create New List', new_list_path, class: "btn btn-light" %>
   </div>
@@ -9,7 +9,7 @@
 <div class="container mt-4">
   <div class="row">
     <% @lists.each do |list| %>
-    <div class="col-4">
+    <div class="col-4 mt-5">
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path("default.jpg") %>)">
         <h3><%= link_to list.name, list_path(list), class: "card-category-link" %></h3>
         </div>
