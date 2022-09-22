@@ -3,6 +3,7 @@
   <head>
     <title>RailsWatchList</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
+
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,7 +12,14 @@
   </head>
 
   <body>
-    <%= yield %>
+    <nav class="navbar fixed-top navbar-expand-md navbar-light bg-light">
+      <div class="container">
+        <! — more navigation code here →
+      </div>
+    </nav>
+    <div class=”jumbotron”>
+      <%= yield %>
+    </div>
     <%= render "shared/footer" %>
   </body>
 </html>
