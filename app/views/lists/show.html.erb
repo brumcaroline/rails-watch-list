@@ -1,20 +1,40 @@
- <div class="container my-4">
- <h1><%= @list.name %></h1>
-  <% @list.movies.each do |movie| %>
-    <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
-    <p><strong>Title:</strong> <%= movie.title %></p>
-    <p><strong>Overview: </strong> <%= movie.overview %></p>
-    <p><strong>Rating:</strong> <%= movie.rating %></p>
-    <%= link_to "Delete", bookmark_path(bookmark), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1440404653325-ab127d49abc1?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);">
+  <div class="container">
+    <h1>Your <strong>fav</strong><strong> movies in one place</strong>!</h1>
+    <p><em>Grab your popcorn and pick one</em></p>
+    <%= link_to 'Create New List', new_list_path, class: "btn-yellow" %>
+  </div>
+</div>
+
+  <div class="list-name text-center mt-3 font-weight-bold"><h1><%= @list.name %></h1></div>
+
+<div class="big-container p-1 p-sm-3">
+
+    <div class="card-master">
+        <% @list.movies.each do |movie| %>
+        <div class="card-index">
+          <% bookmark = Bookmark.find_by(list: @list, movie: movie) %>
+          <img src="<%= movie.poster_url %>" alt="<%= movie.title %> poster">
+
+          <div class="card-index-infos">
+            <div class="card-index-infos-text">
+              <p><strong>Title:</strong> <%= movie.title %></p>
+              <p><strong>Overview: </strong> <%= movie.overview %></p>
+              <p><strong>Rating:</strong> <%= movie.rating %></p>
+            </div>
+            <%= link_to "Delete", bookmark_path(bookmark), class: "btn-yellow", data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' } %>
+          </div>
+        </div>
+      </div>
     <% end %>
-</div>
 
-<div class="container">
-  <%= simple_form_for [@list, @bookmark] do |f| %>
-    <%= f.input :comment, placeholder:'Add a comment' %>
-    <%= f.association :movie %>
-    <%= f.submit class: 'btn-submit mt-3' %>
-  <% end %>
-<%= link_to "Return", lists_path, class: "btn btn-outline-success mt-3" %>
-</div>
+    <div class="add-bookmark">
+      <%= simple_form_for [@list, @bookmark] do |f| %>
+        <%= f.input :comment, placeholder:'Add a comment' %>
+        <%= f.association :movie %>
+        <%= f.submit class: 'btn-submit mt-3' %>
+      <% end %>
+      <%= link_to "Return", lists_path, class: "btn btn-outline-success mt-3" %>
+    </div>
 
+</div>

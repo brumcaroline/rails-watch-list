@@ -14,10 +14,73 @@
 }
 
 .card-category-link {
-  color: white;
+  color: rgba(169, 164, 164, 0.711);
   text-decoration: none;
 }
 
 .card-category-link:hover {
   color: rgb(0, 0, 0);
+}
+
+.card-master {
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+  border-radius: 5px;
+  padding: 16px
+}
+
+.card-index {
+  overflow: hidden;
+  margin-right: 0;
+  width: 600px;
+  height: 250px;
+  border-radius: 5px;
+  background: gainsboro;
+  // box-shadow: 0 0 5px rgb(0 0 0 / 20%);
+  display: flex;
+  padding: 16px;
+  margin-bottom: 16px;
+  justify-content: flex-start;
+}
+
+.card-index img {
+  height: 220px;
+  width: 40%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.card-index-infos {
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  // justify-content: flex-end;
+  width: 100%;
+  overflow: auto;
+
+  .btn-yellow {
+    align-self: flex-end;
+    margin-top: auto;
+  }
+}
+
+.card-index-infos-text {
+  padding: 0 12px;
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+}
+
+
+.add-bookmark {
+  width: 40%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.big-container {
+  gap: 16px;
 }
